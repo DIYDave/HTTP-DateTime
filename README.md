@@ -6,8 +6,8 @@ Library package for Arduino and other C ++ IDE. Made and tested for ESP8266. Wit
 ## How does it work?
 On every request to a server, first a header is sent back as an answer. A request may be for example an API request on Youtube, on Openweathermap, or load request for a HTML page.
 
-Normally, this header is not used except possibly to ask the status of the request. Here's an example of a header for a API request on a Youtube server. ```
-HTTP/1.1 200 OK
+Normally, this header is not used except possibly to ask the status of the request. Here's an example of a header for a API request on a Youtube server. 
+``` HTTP/1.1 200 OK
 Expires: Sat, 22 Sep 2018 07:25:05 GMT
 Date: Sat, 22 Sep 2018 07:25:05 GMT
 Cache-Control: private, max-age=0, must-revalidate, no-transform
