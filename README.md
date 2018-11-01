@@ -9,7 +9,7 @@ Made and tested for ESP8266. With small changes also usable with Arduino or ESP3
 On every request to a server, first a header is sent back as an answer. A request may be for example an API request on Youtube, on Openweathermap, or load request for a HTML page.
 
 Normally, this header is not used except possibly to ask the status of the request. Here's an example of a header for a pageview on a Youtube server.
-...
+```
 HTTP/1.1 200 OK
 Expires: Sat, 22 Sep 2018 07:25:05 GMT
 Date: Sat, 22 Sep 2018 07:25:05 GMT
@@ -24,4 +24,4 @@ X-XSS-Protection: 1; mode=block
 Content-Length: 506
 Server: GSE
 Alt-Svc: quic=":443"; ma=2592000; v="44,43,39,35"
-...
+```
