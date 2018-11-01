@@ -6,7 +6,7 @@ Made and tested for ESP8266. With small changes also usable with Arduino or ESP3
 - User-selectable time zone and European daylight saving time.
 
 ## How does it work?
-On every request to a web server, first a header is sent back as an answer. A request may be for example an API request on Youtube, on Openweathermap, or load request for a HTML page.
+On every request to a web server, first a header is sent back as an answer. A request may be for example an [API request on Youtube](https://developers.google.com/youtube/v3/), on [Openweathermap](https://openweathermap.org/api), or a [load request for a HTML page](https://www.google.ch).
 
 Normally, this header is not used except possibly to ask the status of the request. Here's an example of a header for a API request on a Youtube server. (First part only)
 ``` 
