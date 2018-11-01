@@ -26,3 +26,8 @@ Alt-Svc: quic=":443"; ma=2592000; v="44,43,39,35"
 Mandatory part of this header is the date and time of the answer. This is described here: https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1 The information can be provided in two defined formats. The formats RFC1123 and RFC850 are supported in this library.
 
 Since all servers of large companies are synchronized with a high-precision clock, this time can be used to synchronize the internal clock of an MCU. This works even without an external Real Time Clock (RTC) device with battery only with the clock frequency of the MCU. It is sufficient if the internal clock is synchronized once every hour. When starting an MCU, it only takes about 1-2 seconds for the clock to be received. (After connecting to the Internet).
+
+## Examples
+### Serial_Test.ino
+This sketch is for test purpose only.
+This can be used, for example, to test summer time switching. The user sends an excerpt of the header via the serial interface and the MCU sends back the edited date and time.
