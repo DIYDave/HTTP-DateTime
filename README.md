@@ -34,11 +34,16 @@ As the time zone in the HTTP header is always GMT, the bigger part in this libra
 1. Download the package (zip) from here.
 2. install the .zip in Arduino IDE. [Description here](https://www.arduino.cc/en/Guide/Libraries#toc4)
 3. Include the headerfile: #include <HttpDateTime.h>
-4. Define a local variable with a structure: ``` stHttpDT lokalTime;     // Define variable with "stHttpDT" struct ```
-⋅⋅⋅ This variable Structure "lokalTime" holds the date/time from the HTTP header.
+4. Define a local variable with a structure: 
+```
+stHttpDT lokalTime;     // Define variable with "stHttpDT" struct 
+```
+⋅⋅⋅ This variable "lokalTime" holds now the date/time from the HTTP header.
 5. Set the Constant for your timezone and Daylight saving:
-```const int TIMEZONE = 1;                       // +/- Timezone offset to GMT. e.g. 1 for MEZ, 0 for GMT
-const bool USEDAYLIGHT = 1;                   // Use European daylight saving or not ```
+```
+const int TIMEZONE = 1;                       // +/- Timezone offset to GMT. e.g. 1 for MEZ, 0 for GMT
+const bool USEDAYLIGHT = 1;                   // Use European daylight saving or not 
+```
 6. Create instance of the HttpDateTime Class: HttpDateTime HttpDateTime(TIMEZONE,USEDAYLIGHT);          // Create class instance
 
 ## Examples
