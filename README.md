@@ -22,11 +22,11 @@ Mandatory part of this header is the date and time of the answer. This is descri
 
 Since all servers of large companies are synchronized with a high-precision clock, this time can be used to synchronize the internal clock of an MCU. This works even without an external Real Time Clock (RTC) device with battery only with the clock frequency of the MCU. It is sufficient if the internal clock is synchronized once every hour. When starting an MCU, it only takes about 1-2 seconds for the clock to be received. (After connecting to the Internet).
 
-Reading / parsing the date and time is easy with this unfortunately little known command.
+Reading / parsing the date and time is easy with this unfortunately little known command **_sscanf_**.
 ```
 sscanf(input, "%10[^,], %d-%3s-%d %d:%d:%d", ....
 ```
-A very good but not exhaustive description of **_sscan_** you can find here: http://docs.roxen.com/pike/7.0/tutorial/strings/sscanf.xml
+A very good but not exhaustive description of **_sscanf_** you find here: http://docs.roxen.com/pike/7.0/tutorial/strings/sscanf.xml
 
 The time zone in the HTTP header is always GMT. The biggest part in this library is the consideration of the time zones and the Daylight saving time (DST) function.
 
