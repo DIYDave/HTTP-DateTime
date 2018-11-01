@@ -37,11 +37,14 @@ As the time zone in the HTTP header is always GMT, the bigger part in this libra
 4. Define a local variable with a structure: `stHttpDT lokalTime;     // Define variable with "stHttpDT" struct`
 ⋅⋅⋅ This variable "lokalTime" holds now the date/time from the HTTP header.
 5. Set the Constant for your timezone and Daylight saving:
-`const int TIMEZONE = 1;                       // +/- Timezone offset to GMT. e.g. 1 for MEZ, 0 for GMT`
-`const bool USEDAYLIGHT = 1;                   // Use European daylight saving or not`
+```
+const int TIMEZONE = 1;                       // +/- Timezone offset to GMT. e.g. 1 for MEZ, 0 for GMT
+const bool USEDAYLIGHT = 1;                   // Use European daylight saving or not
+```
 6. Create instance of the HttpDateTime Class: `HttpDateTime HttpDateTime(TIMEZONE,USEDAYLIGHT);`
 
 ## Examples
 ### Serial_Test.ino
-⋅⋅⋅This sketch is for test purpose only.
-⋅⋅⋅This can be used, for example, to test summer time switching. The user sends an excerpt of the header via the serial interface and ⋅⋅⋅the MCU sends back the edited date and time.
+This sketch is for test purpose only.
+This can be used, for example, to test summer time switching. The user sends an excerpt of the header via the serial interface and the MCU sends back the edited date and time.
+
