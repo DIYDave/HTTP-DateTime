@@ -1,5 +1,6 @@
 # HTTP-DateTime
-Library package for Arduino and other C ++ IDE. Made and tested for ESP8266. With small changes also usable with Arduino or ESP32.
+Library package for Arduino and other C ++ IDE. 
+Made and tested for ESP8266. With small changes also usable with Arduino or ESP32.
 - Read the date and time from the HTTP header of the server response.
 - User-selectable time zone and European daylight saving time.
 
