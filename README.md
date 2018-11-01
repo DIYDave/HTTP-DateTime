@@ -1,5 +1,6 @@
 # HTTP-DateTime
 Library package for Arduino and other C ++ IDE. 
+
 Made and tested for ESP8266. With small changes also usable with Arduino or ESP32.
 - Read the date and time from the HTTP header of the server response.
 - User-selectable time zone and European daylight saving time.
@@ -26,6 +27,7 @@ Reading / parsing the date and time is easy with this unfortunately little known
 sscanf(input, "%10[^,], %d-%3s-%d %d:%d:%d", ....
 ```
 A very good but not exhaustive description of sscan you can find here: http://docs.roxen.com/pike/7.0/tutorial/strings/sscanf.xml
+
 The time zone in the HTTP header is always GMT. The biggest part in this library is the consideration of the time zones and the Daylight saving time (DST) function.
 
 ## Examples
