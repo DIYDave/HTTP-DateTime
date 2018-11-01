@@ -18,12 +18,12 @@ ETag: "XI7nbFXulYBIpL0ayR_gDh3eu1k/my59RHan7AsdbaUbFTij2u03Zek"
 Vary: Origin
 Vary: X-Origin
 ```
-Mandatory part of this header is the date and time of the answer. The information can be provided in some defined formats. This is [described here](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) The most common formats RFC1123 and RFC850/RFC1036 are supported in this library.
+Mandatory part of this header is the current date and time of the answer. The information can be provided in some defined formats. This is [described here](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) The most common formats RFC1123 and RFC850/RFC1036 are supported in this library.
 
 Since all servers of large companies are synchronized with a high-precision clock, this date/time can be used to synchronize the internal clock of an MCU. This works even without an external Real Time Clock (RTC) device with battery only with the clock frequency of the MCU. It is sufficient if the internal clock is synchronized once every hour or so. When starting an MCU, it only takes about 1-2 seconds for the clock to be received. (After connecting to the Internet).
 
 Reading / parsing the date and time out of the header is easy with the, unfortunately little known, command **_sscanf_**.
-```
+```C++
 sscanf(input, "%10[^,], %d-%3s-%d %d:%d:%d", ....
 ```
 You find a very good but not exhaustive description of **_sscanf_** here: http://docs.roxen.com/pike/7.0/tutorial/strings/sscanf.xml
