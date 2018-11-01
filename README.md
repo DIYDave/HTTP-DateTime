@@ -6,9 +6,9 @@ Made and tested for ESP8266. With small changes also usable with Arduino or ESP3
 - User-selectable time zone and European daylight saving time.
 
 ## How does it work?
-On every request to a web server, first a header is sent back as an answer. A request may be for example an [API request on Youtube](https://developers.google.com/youtube/v3/), on [Openweathermap](https://openweathermap.org/api), or a [load request for a HTML page](https://www.google.ch).
+On every request to a web server, first a header is sent back as an answer. A request may be for example an [API request on Youtube](https://developers.google.com/youtube/v3/), on [Openweathermap](https://openweathermap.org/api), or a simple [load request for a HTML page](https://www.google.ch).
 
-Normally, this header is not used except possibly to ask the status of the request. Here's an example of a header for a API request on a Youtube server. (First part only)
+Normally, this header is not used except possibly to ask the status of the response. Here's an example of a header for a API request on a Youtube server. (First part only)
 ``` 
 HTTP/1.1 200 OK
 Expires: Sat, 22 Sep 2018 07:25:05 GMT
@@ -18,17 +18,17 @@ ETag: "XI7nbFXulYBIpL0ayR_gDh3eu1k/my59RHan7AsdbaUbFTij2u03Zek"
 Vary: Origin
 Vary: X-Origin
 ```
-Mandatory part of this header is the date and time of the answer. This is described here: https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1 The information can be provided in two defined formats. The formats RFC1123 and RFC850/RFC1036 are supported in this library.
+Mandatory part of this header is the date and time of the answer. This is [described here](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) The information can be provided in some defined formats. The most common formats RFC1123 and RFC850/RFC1036 are supported in this library.
 
 Since all servers of large companies are synchronized with a high-precision clock, this time can be used to synchronize the internal clock of an MCU. This works even without an external Real Time Clock (RTC) device with battery only with the clock frequency of the MCU. It is sufficient if the internal clock is synchronized once every hour. When starting an MCU, it only takes about 1-2 seconds for the clock to be received. (After connecting to the Internet).
 
-Reading / parsing the date and time is easy with this unfortunately little known command **_sscanf_**.
+Reading / parsing the date and time out of the header is easy with the, unfortunately little known, command **_sscanf_**.
 ```
 sscanf(input, "%10[^,], %d-%3s-%d %d:%d:%d", ....
 ```
 A very good but not exhaustive description of **_sscanf_** here: http://docs.roxen.com/pike/7.0/tutorial/strings/sscanf.xml
 
-The time zone in the HTTP header is always GMT. The biggest part in this library is the consideration of the time zones and the Daylight saving time (DST) function.
+The time zone in the HTTP header is always GMT. The bigger part in this library is the consideration of the time zones and the Daylight saving time (DST) function.
 
 ## How to use the library?
 
