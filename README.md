@@ -6,7 +6,7 @@ Made and tested for ESP8266. With small changes also usable with Arduino or ESP3
 - User-selectable time zone and European daylight saving time.
 
 ## How does it work?
-On every request to a server, first a header is sent back as an answer. A request may be for example an API request on Youtube, on Openweathermap, or load request for a HTML page.
+On every request to a web server, first a header is sent back as an answer. A request may be for example an API request on Youtube, on Openweathermap, or load request for a HTML page.
 
 Normally, this header is not used except possibly to ask the status of the request. Here's an example of a header for a API request on a Youtube server. (First part only)
 ``` 
@@ -26,7 +26,7 @@ Reading / parsing the date and time is easy with this unfortunately little known
 ```
 sscanf(input, "%10[^,], %d-%3s-%d %d:%d:%d", ....
 ```
-A very good but not exhaustive description of **_sscanf_** you find here: http://docs.roxen.com/pike/7.0/tutorial/strings/sscanf.xml
+A very good but not exhaustive description of **_sscanf_** here: http://docs.roxen.com/pike/7.0/tutorial/strings/sscanf.xml
 
 The time zone in the HTTP header is always GMT. The biggest part in this library is the consideration of the time zones and the Daylight saving time (DST) function.
 
