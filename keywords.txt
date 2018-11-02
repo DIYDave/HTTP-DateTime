@@ -1,0 +1,33 @@
+#######################################
+# Syntax Coloring Map 
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1) orange
+#######################################
+
+dayOfWeek	KEYWORD1	
+HttpDateTime.h	KEYWORD1
+
+
+#######################################
+# Methods and Functions (KEYWORD2) orange
+#######################################
+
+HttpDateTime	KEYWORD2
+
+#######################################
+# Datatyps (KEYWORD3)
+#######################################
+
+dayOfWeek	KEYWORD3
+
+#######################################
+# Constants (LITERAL1) blue
+#######################################
+
+
+stHttpDT	LITERAL1
+#USEDAYLIGHT	LITERAL1
+
+
