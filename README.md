@@ -6,7 +6,7 @@ Made and tested for ESP8266 & ESP32. Also usable for Arduino with ethernet shiel
 - User selectable time zone and European daylight saving time.
 
 ## How does it work?
-On every request to a web server, first a header is sent back as an answer. A request may be for example an [API request on Youtube](https://developers.google.com/youtube/v3/), on [Openweathermap](https://openweathermap.org/api), or a simple [load request for a HTML page](https://www.google.ch).
+On every request to a web server, for example an [API request on Youtube](https://developers.google.com/youtube/v3/), on [Openweathermap](https://openweathermap.org/api), or a simple [load request for a HTML page](https://www.google.ch), first a header is sent back as an answer.
 
 Normally, this header is not used except possibly to ask the status of the response. Here's an example of a header for a API request on a Youtube server. (First part only)
 ``` 
@@ -20,7 +20,7 @@ Vary: X-Origin
 ```
 Mandatory part of this header is the current date and time of the answer. The information can be provided in some defined formats. This is [described here](https://www.w3.org/Protocols/rfc2616/rfc2616-sec3.html#sec3.3.1) The most common formats RFC1123 and RFC850/RFC1036 are supported in this library.
 
-Since all servers of large companies are synchronized with a high-precision clock, this date/time can be used to synchronize the internal clock of an MCU. This works even without an external Real Time Clock (RTC) device with battery only with the clock frequency of the MCU. It is sufficient if the internal clock is synchronized once every hour or so. When starting an MCU, it only takes about 1-2 seconds for the clock to be received. (After connecting to the Internet).
+Since all servers of large companies are synchronized with a high-precision clock, this date/time can be used to synchronize the internal clock of an MCU. This works even without an external Real Time Clock (RTC) device with battery. Only with the clock frequency of the MCU. It is sufficient if the internal clock is synchronized once every hour or so. When starting an MCU, it only takes about one second for the date/time to be received. (After connecting to the Internet).
 
 Reading / parsing the date and time out of the header is easy with the, unfortunately little known, command **_sscanf_**.
 ```C++
@@ -33,16 +33,27 @@ As the time zone in the HTTP header is always GMT, the bigger part in this libra
 ## How to use the library in my project?
 1. Download the package (zip) from here.
 2. install the .zip in Arduino IDE. [Description here](https://www.arduino.cc/en/Guide/Libraries#toc4)
-3. Include the headerfile: #include <HttpDateTime.h>
-4. Define a local variable with a structure: `stHttpDT lokalTime;     // Define variable with "stHttpDT" struct`
-⋅⋅⋅ This variable "lokalTime" holds now the date/time from the HTTP header.
+3. Open one of the examples that are installed. In IDE Menu _"File/Examples/HttpDateTime"_
+4. Set your data for your WiFi Connection.
+```C++
+const char* SSID     = "XXXXXX";              // The SSID of your WiFi accesspoint
+const char* PASSWORD = "XXXXXX";              // password for your WiFi accesspoint
+```
 5. Set the Constant for your timezone and Daylight saving:
 ```C++
 const int TIMEZONE = 1;                       // +/- Timezone offset to GMT. e.g. 1 for MEZ, 0 for GMT
 const bool USEDAYLIGHT = 1;                   // Use European daylight saving or not
 ```
-6. Create instance of the HttpDateTime Class: `HttpDateTime HttpDateTime(TIMEZONE,USEDAYLIGHT);`
-
+In this onlie examples a simple HTML page request is made to get the HTTP header from a Google server. You can use it in this way if you dont need other data. If you make a request to an API service anyway, you do not need this part of the code. Then you just have to filter the header from the answer and pass it to the function of the library. The function will return TRUE if the parsing was successful and the _LocalTime struct_ will hold the current date/time.
+```C++
+void parseDateTime(String _header){           
+  if (HttpDateTime.getDateTime(_header,LocalTime)){     // Parse date and time from header and calculate timezone and daylight saving
+     setTime(LocalTime.hour,LocalTime.minute,LocalTime.second,LocalTime.day,LocalTime.month,LocalTime.year);
+  }else{
+    Serial.println("Error parsing header");
+  }
+}
+```
 ## Examples
 ### Serial_Test.ino
 This sketch is for test purpose only.
