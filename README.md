@@ -44,7 +44,7 @@ const char* PASSWORD = "XXXXXX";              // password for your WiFi accesspo
 const int TIMEZONE = 1;                       // +/- Timezone offset to GMT. e.g. 1 for MEZ, 0 for GMT
 const bool USEDAYLIGHT = 1;                   // Use European daylight saving or not
 ```
-In this onlie examples a simple HTML page request is made to get the HTTP header from a Google server. You can use it in this way if you dont need other data. If you make a request to an API service anyway, you do not need this part of the code. Then you just have to filter the header from the answer and pass it to the function of the library. The function will return TRUE if the parsing was successful and the _LocalTime struct_ will hold the current date/time.
+In these onlie examples a simple HTML page request is made to get the HTTP header from a Google server. You can use it in this way if you dont need other data. If you make a request to an API service anyway, you do not need this part of the code. Then you just have to filter the header from the answer and pass it to the function of the library. The function will return TRUE if the parsing was successful and the _LocalTime struct_ will hold the current date/time.
 ```C++
 void parseDateTime(String _header){           
   if (HttpDateTime.getDateTime(_header,LocalTime)){     // Parse date and time from header and calculate timezone and daylight saving
