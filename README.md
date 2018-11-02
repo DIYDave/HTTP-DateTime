@@ -25,6 +25,7 @@ Reading / parsing the date and time out of the header is easy with the, unfortun
 sscanf(input, "%10[^,], %d-%3s-%d %d:%d:%d", ....
 ```
 You find a very good but not exhaustive description of **_sscanf_** here: http://docs.roxen.com/pike/7.0/tutorial/strings/sscanf.xml
+
 As the time zone in the HTTP header is always GMT, the bigger part in this library is the consideration of the time zones and the Daylight saving time (DST) function.
 ## How to use the library in my project?
 1. Download the package (zip) from here.
