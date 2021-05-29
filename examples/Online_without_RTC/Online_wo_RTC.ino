@@ -10,11 +10,8 @@ Copyright (c) 2018 by Dave Waldesbuehl
 #include <HttpDateTime.h>
 
 // WiFi settings
-//const char* SSID     = "XXXXXX";             // The SSID of your WiFi accesspoint
-//const char* PASSWORD = "XXXXXX";       // password for your WiFi accesspoint
-const char* SSID     = "ORCH-Tech";              // The SSID of your WiFi accesspoint
-const char* PASSWORD = "/17Orch&InternetAccess";             // password for your WiFi accesspoint
-
+const char* SSID     = "XXXXXX";             // The SSID of your WiFi accesspoint
+const char* PASSWORD = "XXXXXX";       // password for your WiFi accesspoint
 
 // Http settings
 const char SERVER[30] = "www.google.ch";    	// Every host is possible
